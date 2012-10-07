@@ -2,6 +2,17 @@ var mailer = require('nodemailer');
 var config = require('../config').config;
 var EventProxy = require('eventproxy').EventProxy;
 var util = require('util');
+/*
+var smtpTransport = mailer.createTransport("SMTP",{
+    service:"Gmail",
+    auth: {
+        user: config.mail_user,
+        pass: config.mail_pass
+    }
+});
+*/
+
+
 mailer.SMTP = {
   host: config.mail_host,
   port: config.mail_port,
@@ -9,6 +20,7 @@ mailer.SMTP = {
   user: config.mail_user,
   pass: config.mail_pass
 };
+
 
 var SITE_ROOT_URL = 'http://' + config.hostname + (config.port !== 80 ? ':' + config.port : '');
 
@@ -41,6 +53,7 @@ mailEvent.on("getMail", function () {
       try {
         message.debug = false;
         mail = mailer.send_mail(message, function (error, success) {
+        //mail = smtpTransport.sendMail(message, function(error, success) {
           if (error) {
             mails.push(message);
             failed = true;

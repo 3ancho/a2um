@@ -63,7 +63,7 @@
   </div>
   <% } %>
 
-  <% if (locals.no_reply_topics) { %>
+  <% if (config.show_no_reply_messages && locals.no_reply_topics) { %>
   <div class='sep10'></div>
   <div class='panel'>
     <div class='header'>
@@ -153,6 +153,7 @@
   </div>
   <% } %>
   
+  <% if (config.rss.sidebar) { %>
   <div class='sep10'></div>
   <div class='panel'>
     <div class='header'>
@@ -162,4 +163,5 @@
     <a href="/rss"><img alt="RSS订阅" src="/images/rss_icon&40.png" /></a>
     </div>
   </div>
+  <% } %>
 </div>
