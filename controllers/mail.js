@@ -89,6 +89,35 @@ function trigger() {
  * send an email
  * @param  {mail} data [info of an email]
  */
+
+function send_mail(data) {
+  if (!data) {
+    return;
+  }
+  if (config.debug) {
+    console.log('******************** 在测试环境下，不会真的发送邮件*******************');
+    for (var k in data) {
+      console.log('%s: %s', k, data[k]);
+    }
+    return;
+  }
+  var smtpTransport = mailer.createTransport("SMTP",{
+         service: "Gmail",
+         auth: {
+             user: config.mail_user,
+             pass: config.mail_pass 
+         }
+  }); 
+  smtpTransport.sendMail(data, function(error, response) {
+      if(error){
+          console.log(error);
+      }else{
+          console.log("Message sent: " + response.message);
+      }
+  });
+}
+
+/*
 function send_mail(data) {
   if (!data) {
     return;
@@ -103,6 +132,7 @@ function send_mail(data) {
   mails.push(data);
   trigger();
 }
+*/
 
 function send_active_mail(who, token, name, email, cb) {
   var sender =  config.mail_sender;
