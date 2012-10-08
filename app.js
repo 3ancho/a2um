@@ -8,7 +8,7 @@
 
 var path = require('path');
 var express = require('express');
-//var Recaptcha = require('recaptcha').Recaptcha;
+var Recaptcha = require('recaptcha').Recaptcha;
 
 var ndir = require('ndir');
 var config = require('./config').config;

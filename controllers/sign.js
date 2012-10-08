@@ -10,11 +10,15 @@ var config = require('../config').config;
 var message_ctrl = require('./message');
 var mail_ctrl = require('./mail');
 
+var Recaptcha = require('recaptcha').Recaptcha;
+
 //sign up
 exports.signup = function(req,res,next){
   var method = req.method.toLowerCase();
   if (method === 'get'){
-    res.render('sign/signup');
+    var recaptcha = new Recaptcha(config.re_public_key, config.re_private_key);
+
+    res.render('sign/signup', {recaptcha_form: recaptcha.toHTML()} );
     return;
   }
   if(method === 'post'){
@@ -28,6 +32,22 @@ exports.signup = function(req,res,next){
     email = sanitize(email).xss();
     var re_pass = sanitize(req.body.re_pass).trim();
     re_pass = sanitize(re_pass).xss();
+    
+    var data = {
+        remoteip:  req.connection.remoteAddress,
+        challenge: req.body.recaptcha_challenge_field,
+        response:  req.body.recaptcha_response_field
+    };
+
+    var recaptcha = new Recaptcha(config.re_public_key, config.re_private_key, data);
+
+    recaptcha.verify(function(success, error_code) {
+        if(!success) {
+            res.render('sign/signup', {error:'ReCaptcha 错误',name:name,email:email});
+            return;
+        }
+    });
+
     
     if(name == '' || pass =='' || re_pass == '' || email ==''){
       res.render('sign/signup', {error:'信息不完整。',name:name,email:email});
