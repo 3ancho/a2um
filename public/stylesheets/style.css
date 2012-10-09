@@ -9,6 +9,7 @@ body,p {
 }
 #wrapper {
 	background: #d0d6db;
+    background-image: url("/images/bg.png");
 }
 #main {
 	width: 960px;
@@ -102,6 +103,9 @@ a.light:hover {
 	-moz-box-shadow: 0 2px 6px gray;
 	-o-box-shadow: 0 2px 6px gray;
 	box-shadow: 1px 2px 6px gray;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 
   margin: 3px 0px;
 	background-color: #fff;
@@ -528,16 +532,16 @@ textarea[id^=wmd-input] {
 }
 .navbar .brand {
 	padding: 7px 0px 0px 20px;
-	width: 150px;
+	width: 140px;
 }
 .navbar .navbar-search {
 	margin-top: 7px;
 }
 .navbar .search-query {
-	-webkit-box-shadow: none;
+    -webkit-box-shadow: none; 
+    box-shadow: none; 
 	-moz-box-shadow: none;
-	box-shadow: none;
-	background: #d0d6db url('../images/search.png') no-repeat 4px 4px;
+	background: #d0d6db url('../images/search.png') no-repeat 8px 4px;
 	padding: 4px 5px 4px 22px;
 	color: #666;
 	border: 0px;
