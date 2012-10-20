@@ -1,8 +1,9 @@
-# nodeclub
+# a2um 
 
-[![Build Status](https://secure.travis-ci.org/cnodejs/nodeclub.png?branch=master)](http://travis-ci.org/cnodejs/nodeclub)
+基于nodeclub/nodejs的社区系统
+服务密西根大学以及安娜堡周边的华人社区
 
-基于nodejs的社区系统
+# 以下是关于a2um的架构
 
 ## 介绍
 
@@ -59,42 +60,6 @@ table: 'class'
 
 ```javascript
 if (req.body && req.body.user_action === 'upload_image') return next();
-```
-
-## 关于pull request
-
-从现在开始，所有提交都要严格遵循[代码规范](https://github.com/windyrobin/iFrame/blob/master/style.md)。
-
-## Authors
-
-Below is the output from `git-summary`.
-
-```
- project: nodeclub
- commits: 201
- active : 81 days
- files  : 267
- authors: 
-    94  fengmk2                 46.8%
-    20  Jackson Tian            10.0%
-    15  dead-horse              7.5%
-    13  jiyinyiyong             6.5%
-    10  Kenny Zhao              5.0%
-     9  muyuan                  4.5%
-     7  young40                 3.5%
-     6  aisk                    3.0%
-     6  Lei Zongmin             3.0%
-     5  ericzhang               2.5%
-     4  spout                   2.0%
-     3  Json Shen               1.5%
-     2  chang                   1.0%
-     1  张洋                  0.5%
-     1  LeToNode                0.5%
-     1  leizongmin              0.5%
-     1  roymax                  0.5%
-     1  sunwenchao              0.5%
-     1  thebrecht               0.5%
-     1  Xiang Gao               0.5%
 ```
 
 ## License
