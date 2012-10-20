@@ -4,3 +4,4 @@ node_modules
 public/user_data
 coverage.html
 .monitor
+public/sitemap.xml

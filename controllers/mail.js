@@ -112,7 +112,7 @@ function send_mail(data) {
       if(error){
           console.log(error);
       }else{
-          console.log("Message sent: " + response.message);
+          //console.log("Message sent: " + response.message);
       }
   });
 }
